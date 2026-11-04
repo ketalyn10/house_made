@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>House Made</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar" id="bar">
+    <div class="cols frame">
+      <h1 class="brand">There’s a <span class="h">House.</span><sup class="ref">1</sup></h1>
+      <p class="stat" aria-live="polite"><span id="docStat">Loading…</span><sup class="ref">4</sup></p>
+      <div class="about-cell">
+        <button class="link" id="aboutBtn" type="button" aria-expanded="false" aria-controls="about">
+          <span class="x" aria-hidden="true">×</span><span class="lbl">About this site</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="cols frame layout">
+    <aside class="side" aria-label="Reading controls">
+      <div class="btns">
+        <button class="btn" id="openPdf" type="button">Upload a PDF<sup class="ref">2</sup></button>
+        <input class="sr" type="file" id="pdfIn" accept="application/pdf,.pdf" tabindex="-1">
+        <button class="btn" id="randomize" type="button">Randomize Text</button>
+      </div>
+      <div class="ctl">
+        <label for="size">Text Size</label>
+        <input type="range" id="size" min="12" max="40" step="1" value="19">
+      </div>
+      <div class="ctl">
+        <label for="weight">Text Weight</label>
+        <input type="range" id="weight" min="-100" max="100" step="1" value="0">
+      </div>
+      <div class="ctl">
+        <span id="buildLbl">Building<sup class="ref">3</sup></span>
+        <button class="switch" id="building" type="button" role="switch" aria-checked="true" aria-labelledby="buildLbl"></button>
+      </div>
+    </aside>
+
+    <main class="pages" id="pages"></main>
+
+    <aside class="about" id="about" aria-label="About this site" hidden>
+      <ol class="notes">
+        <li><sup>1</sup>This website is inspired by Mark Z. Danielewski’s <em><span class="h">House</span> of Leaves</em>, but it functions with any PDF uploaded to the site. <span class="h">Houses</span> are built wherever the word ‘<span class="h">house</span>’ appears. Click to interact with the <span class="h">houses</span>, and scroll to read.</li>
+        <li><sup>2</sup>Files uploaded are not stored. You could say this site does not ‘<span class="h">house</span>’ your information. Sample texts are excerpts used for noncommercial artistic purposes; each is credited in note 5. All rights belong to their authors.</li>
+        <li><sup>3</sup>Toggle to read regularly.</li>
+        <li><sup>4</sup>Updated Oct 27, 2026. Katelyn finished reading <em><span class="h">House</span> of Leaves</em> after a period of 7 months, on and off again.</li>
+        <li id="creditNote" hidden><sup>5</sup><span class="txt"></span></li>
+      </ol>
+    </aside>
+  </div>
+
+  <div class="drop" id="drop" hidden>Drop a PDF to read it</div>
+  <div class="toast" id="toast" role="status" hidden></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+  <script src="texts.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
